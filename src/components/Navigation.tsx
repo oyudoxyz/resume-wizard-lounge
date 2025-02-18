@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,20 +28,25 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-xl font-semibold">ResuMate</span>
+            <Link to="/" className="text-xl font-semibold">
+              ResuMate
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link
+              to="/features"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
               Features
-            </a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">
-              How It Works
-            </a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">
+            </Link>
+            <Link
+              to="/pricing"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
               Pricing
-            </a>
+            </Link>
             <Button
               variant="default"
               className="bg-primary hover:bg-primary-hover text-white transition-colors"
@@ -71,24 +78,18 @@ const Navigation = () => {
         } md:hidden bg-white shadow-lg`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <a
-            href="#features"
+          <Link
+            to="/features"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Features
-          </a>
-          <a
-            href="#how-it-works"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-          >
-            How It Works
-          </a>
-          <a
-            href="#pricing"
+          </Link>
+          <Link
+            to="/pricing"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Pricing
-          </a>
+          </Link>
           <div className="px-3 py-2">
             <Button
               variant="default"
